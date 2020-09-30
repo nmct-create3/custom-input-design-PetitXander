@@ -56,6 +56,14 @@
     --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
     --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
 }
 
 /*------------------------------------*\
@@ -611,22 +619,49 @@ input::placeholder {
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     outline: none;
     transition: border var(--global-transition-timing-alpha);
+    border: var(--global-borderWidth) solid var(--global-input-backgroundColor)
+    background-color: var(--global-input-backgroundColor);
+color: var(--global-input-color);
 }
 
 .c-input:hover {
-    border-color: var(--global-color-neutral-xx-light);
+    border-color: var(--global-input-hover-borderColor);
 }
 
-.c-input:focus,
+.c-input:focus{
+    border-color: var(--global-input-focus-borderColor);
+}
 .c-input:active {
     border-color: var(--global-color-alpha);
-    box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    box-shadow: var(--global-input-boxShadow);
 }
 
 /* option input for checkboxes and radio buttons */
 
 .c-option {
     margin-right: var(--global-whitespace-sm);
+}
+
+.c-option--hidden:checked + .c-custom-option {
+    background-color: red;
+  }
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    fill: blue
+  }
+
+.c-custom-option__symbol{
+    opacity: 0;
+  }
+
+.c-custom-option__fake-input{
+    display: flex;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--global-color-neutral-xxx-light);
+    margin-right: 8px;
+    box-shadow: var(--global-input-boxShadow);
+
 }
 
 /*
