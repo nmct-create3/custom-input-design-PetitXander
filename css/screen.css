@@ -46,6 +46,7 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    --global-input-x-boxShadow: 0 0 0 3px var(--global-color-alpha-transparent);
 
     /* border stuff */
     --global-borderRadius: 3px;
@@ -669,6 +670,22 @@ input::placeholder {
     margin-right: 8px;
     box-shadow: 0 0 0 3px var(--global-input-boxShadow);
 
+}
+
+.c-custom-option__fake-input:focus{
+    box-shadow: var(--global-input-boxShadow);   
+}
+
+.c-custom-option__fake-input:focus:active{
+    box-shadow: var(--global-input-boxShadow);   
+}
+
+.c-custom-option__fake-input:hover{
+    box-shadow: var(--global-input-x-boxShadow);   
+}
+
+.c-custom-option__fake-input:hover:active{
+    box-shadow: var(--global-input-x-boxShadow);   
 }
 
 .c-custom-option__fake-input--radio{
