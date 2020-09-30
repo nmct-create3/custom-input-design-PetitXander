@@ -655,6 +655,14 @@ input::placeholder {
     opacity: 1;
 }
 
+.c-option-list{
+    margin-bottom: 24px;
+}
+
+.c-option-list__item{
+    margin-bottom: 12px;
+}
+
 .c-custom-option__symbol{
     opacity: 0;
     display: block;
@@ -730,7 +738,6 @@ input::placeholder {
 .c-label--option {
     padding-bottom: 0;
     display: flex;
-    margin-bottom: 5px;
 }
 
 /*
