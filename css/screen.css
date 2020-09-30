@@ -58,6 +58,7 @@
     --global-baseline: 8px;         
     --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
 
+
     --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
     --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
     --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
@@ -683,6 +684,7 @@ input::placeholder {
     height: 10px;
     width: 10px;
     fill: var(--global-color-alpha);
+    transition: opacity var(--global-transitionTiming-alpha);
 }
   
 .c-custom-option__fake-input--radio .c-custom-option__symbol {
@@ -691,6 +693,7 @@ input::placeholder {
     width: 6px;
     background-color: var(--global-color-alpha);
     border-radius: 100%;
+    transition: opacity var(--global-transitionTiming-alpha);
 }
 
 /*
