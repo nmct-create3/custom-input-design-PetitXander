@@ -38,6 +38,7 @@
     --global-color-neutral-xx-dark: #4b4c60;
     --global-color-neutral-xxx-dark: #35374d;
     --global-color-neutral-xxxx-dark: #20223a;
+    --color-neutral-xxxx-dark: #20223a;
 
     /* input colors */
     --global-input-backgroundColor: White;
@@ -47,6 +48,11 @@
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
     --global-input-x-boxShadow: 0 0 0 3px var(--global-color-alpha-transparent);
+
+    /* globale page colors */
+    --global-page-color: var(--color-neutral-xxxx-dark);
+    --global-page-backgroundColor: var(--color-neutral-xxxx-light);
+    --global-card-backgroundColor: var(--global-color-neutral-xxxx-light);
 
     /* border stuff */
     --global-borderRadius: 3px;
@@ -78,22 +84,37 @@
     Global page styles + universal box-sizing:
 */
 
+
+
 html {
     font-size: 16px;
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: var(--global-color-neutral-xxxx-light);
+    color: var(--global-page-color); 
+    background-color: var(--global-page-backgroundColor);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;    
 }
+
+
+
 
 *,
 *:before,
 *:after {
     box-sizing: inherit;
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: White;
+        --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
+    
+    }
+}
+
+
 
 /*
 * Remove text-shadow in selection highlight:
@@ -511,6 +532,8 @@ input::placeholder {
     Website main logo
 */
 
+
+
 .c-logo {
     height: var(--global-whitespace);
     display: flex;
@@ -524,16 +547,25 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
-}
+    fill: var(--logo__path--1--fill, var(--global-color-neutral-xxxx-dark));
+  }
+  
+  .c-logo__path--2 {
+    fill: var(--logo__path--2--fill, var(--global-color-alpha));
+  }
+  
+  .c-logo__path--3 {
+    fill: var(--logo__path--3--fill, var(--global-color-alpha-x-dark));
+  }
 
-.c-logo__path--2 {
-    fill: var(--global-color-alpha);
-}
 
-.c-logo__path--3 {
-    fill: var(--color-alpha-x-dark);
-}
+  @media (prefers-color-scheme: dark) {
+    .c-logo {
+      --logo__path--1--fill: White;
+      --logo__path--2--fill: var(--logo__path--1--fill);
+      --logo__path--3--fill: var(--logo__path--1--fill);
+    }
+  }
 
 /*
     Component: Card
@@ -542,7 +574,7 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    background-color: var(--global-card-backgroundColor);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0,0,0, 0.05), 0 2px 4px rgba(0,0,0,.075);
@@ -583,6 +615,13 @@ input::placeholder {
 
     .c-card__title {
         margin-bottom: var(--global-whitespace-xl);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        
+        --global-card-backgroundColor: var(--global-color-neutral-xxx-dark);
     }
 }
 
@@ -631,6 +670,18 @@ input::placeholder {
 .c-input:active {
     border-color: var(--global-input-focus-borderColor);
     box-shadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+    --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-input-color: white;
+    --global-input-borderColor: var(--global-color-neutral-xxxx-dark);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    --global-input-x-boxShadow: 0 0 0 3px var(--global-color-alpha-transparent);
+    }
 }
 
 /* option input for checkboxes and radio buttons */
@@ -719,6 +770,29 @@ input::placeholder {
     background-color: var(--global-color-alpha);
     border-radius: 100%;
     transition: opacity var(--global-transitionTiming-alpha);
+}
+
+/*
+    Component: Custom Toggle
+    ---
+    Class to put on all form labels
+*/
+
+.c-custom-toggle__symbol{
+    opacity: 0;
+    display: block;
+}
+
+.c-custom-toggle__fake-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--global-input-borderColor);
+    margin-right: 8px;
+    box-shadow: 0 0 0 3px var(--global-input-boxShadow);
+
 }
 
 /*
