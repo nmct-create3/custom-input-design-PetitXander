@@ -782,21 +782,101 @@ input::placeholder {
     Class to put on all form labels
 */
 
-.c-custom-toggle__symbol{
-    opacity: 0;
-    display: block;
+.c-custom-toggle{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
-.c-custom-toggle__fake-input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    height: 16px;
-    border: 1px solid var(--global-input-borderColor);
-    margin-right: 8px;
-    box-shadow: 0 0 0 3px var(--global-input-boxShadow);
 
+.c-custom-toggle__fake-input{
+    display: block;
+    width: 48px;
+    height: 24px;
+    border: 1px solid var(--global-input-borderColor);
+    border-radius: 24px;
+    background-color: var(--global-color-neutral-xxxx-light);
+    margin-right: 16px;
+    -webkit-transition: var(--global-transition);
+    -moz-transition: var(--global-transition);
+    -o-transition: var(--global-transition);
+    transition: var(--global-transition); /* custom */
+
+    -webkit-transition-timing-function: var(--global-transition-function);
+    -moz-transition-timing-function: var(--global-transition-function);
+    -o-transition-timing-function: var(--global-transition-function);
+    transition-timing-function: var(--global-transition-function); /* custom */
+}
+
+.c-custom-toggle__fake-input::after{
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid white;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0 1px 3px #00000016;
+    -webkit-transition: var(--global-transition);
+    -moz-transition: var(--global-transition);
+    -o-transition: var(--global-transition);
+    transition: var(--global-transition); /* custom */
+
+    -webkit-transition-timing-function: var(--global-transition-function);
+    -moz-transition-timing-function: var(--global-transition-function);
+    -o-transition-timing-function: var(--global-transition-function);
+    transition-timing-function: var(--global-transition-function); /* custom */
+}
+
+@media (prefers-color-scheme: dark) {
+    .c-custom-toggle__fake-input::after {
+        background-color: var(--global-color-neutral-x-light);
+        border: 1px solid var(--global-color-neutral-x-light);
+    }
+}
+
+.c-option--hidden:focus + .c-custom-toggle .c-custom-toggle__fake-input {
+    /* Do magic stuff here, for example: */
+    box-shadow: var(--global-focus-box-shadow);
+    
+}
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input {
+    /* Do magic stuff here, for example: */
+    box-shadow: var(--global-focus-box-shadow);
+    
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input {
+    /* Do magic stuff here, for example: */
+    background-color: var(--global-color-alpha);
+    border-color: var(--global-color-alpha-dark);
+    box-shadow: var(--global-focus-box-shadow);
+    
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after{
+    transform: translateX(24px);
+}
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    width: 28px;
+    border-radius: 20px;
+}
+
+.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    border-radius: 20px;
+    width: 28px;
+    transform: translateX(18px);
+}
+.c-custom-toggle--inverted{
+    margin-top: 6.5px;
+    margin-bottom: 6.5px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
 }
 
 /*
