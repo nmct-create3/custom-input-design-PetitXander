@@ -880,6 +880,34 @@ input::placeholder {
 }
 
 /*
+    Component: Custom Select
+    ---
+    Custom options for dropdown selection
+*/
+.c-custom-select{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+
+.c-custom-select__symbol{
+    height: 24px;
+    position: absolute;
+    right: 12px;
+    pointer-events: none;
+    fill: var(--global-color-neutral-x-dark);
+}
+
+.c-custom-select__input{
+    -webkit-appearance: none;
+    width: 100%;
+    border-color: var(--global-color-neutral-xxx-light);
+
+}
+
+/*
     Component: Label
     ---
     Class to put on all form labels
