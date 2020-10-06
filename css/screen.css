@@ -902,6 +902,8 @@ input::placeholder {
 
 .c-custom-select__input{
     -webkit-appearance: none;
+    background-color: var(--global-input-backgroundColor);
+    color: var(--global-input-color);
     width: 100%;
     border-color: var(--global-color-neutral-xxx-light);
 
